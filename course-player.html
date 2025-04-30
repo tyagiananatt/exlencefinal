@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Video Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="course-player.css">
+</head>
+<body>
+    <div class="course-player">
+        <!-- Video Section -->
+        <div class="video-container">
+            <div class="video-wrapper">
+                <!-- YouTube Player will be embedded here -->
+                <iframe id="videoPlayer" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <div class="video-controls">
+                    <button id="prevButton" class="control-button">
+                        <i class="fas fa-step-backward"></i>
+                        Previous
+                    </button>
+                    <button id="nextButton" class="control-button">
+                        Next
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="video-info">
+                <h2 id="videoTitle">Video Title</h2>
+                <p id="videoDescription">Video description will appear here...</p>
+            </div>
+        </div>
+
+        <!-- Notes Section -->
+        <div class="notes-section">
+            <div class="notes-header">
+                <h3>Notes</h3>
+                <button id="saveNotesButton" class="save-button">
+                    <i class="fas fa-save"></i>
+                    Save Notes
+                </button>
+            </div>
+            <textarea id="videoNotes" placeholder="Take notes for this video..."></textarea>
+        </div>
+
+        <!-- Playlist Section -->
+        <div class="playlist-container">
+            <div class="playlist-header">
+                <h3>Course Content</h3>
+                <div class="playlist-search">
+                    <input type="text" placeholder="Search videos..." id="playlistSearch">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div id="videoPlaylist" class="playlist-items">
+                <!-- Playlist items will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Get video ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('video');
+        
+        // Set the video source
+        if (videoId) {
+            document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+        }
+    </script>
+    <script src="course-player.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    color: whitesmoke;
+     background-color: grey; 
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+body{
+    background-image: url("https://i.pinimg.com/originals/09/fc/b0/09fcb0d486e3644346e5acca1b0cd5d2.jpg");
+    /* opacity: 0.5; */
+}
+.courses{
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(30px,260px));
+gap: 2px;
+padding: 10px;
+}
